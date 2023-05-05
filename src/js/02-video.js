@@ -8,7 +8,10 @@ function onPlay({seconds}) {
     localStorage.setItem(STORAGE_KEY, seconds);
 };
 function setTime() {
-    const saveTime = localStorage.getItem(STORAGE_KEY)
+    let saveTime = localStorage.getItem(STORAGE_KEY)
+    if (saveTime === null) {
+        saveTime = 0
+    } 
     player.setCurrentTime(saveTime)
 }
 window.addEventListener("DOMContentLoaded", setTime)
